@@ -23,10 +23,24 @@ def define_matrix():
 
 def add_matrix(matrix1, matrix2):
     if matrix1.shape == matrix2.shape:
-        Result = matrix1+matrix2
-        return Result
+        return matrix1+matrix2
     else:
         print("Matrix dimensions must match for addition.")
+
+
+def subtract_matrix(matrix1, matrix2):
+    if matrix1.shape == matrix2.shape:
+        return matrix1-matrix2
+    else:
+        print("Matrix dimensions must match for subtraction.")
+
+
+def scalar_matrix():
+    m = int(input("Enter the number of rows: "))
+    n = int(input("Enter the number of columns: "))
+    A = input_matrix(m, n)
+    scalar = float(input("Enter the scalar value: "))
+    return A * scalar
 
 
 def print_matrix(matrix):
@@ -58,26 +72,25 @@ while True:
         A, B = define_matrix()
         result = add_matrix(A, B)
 
-    if choice in [2, 4]:
+    if choice == 2:
+        A, B = define_matrix()
+        result = subtract_matrix(A, B)
+
+    if choice == 3:
+        scalar_matrix()
+
+    if choice == 4:
+        A, B = define_matrix()
+
         m = int(input("Enter the number of rows: "))
         n = int(input("Enter the number of columns: "))
         A = input_matrix(m, n)
         B = input_matrix(m, n)
-    elif choice == 3:
-        m = int(input("Enter the number of rows: "))
-        n = int(input("Enter the number of columns: "))
-        A = input_matrix(m, n)
-        scalar = float(input("Enter the scalar value: "))
+
     elif choice in [5, 6, 7]:
         m = int(input("Enter the size of the square matrix (e.g., 2 for 2x2, 3 for 3x3, etc.): "))
         A = input_matrix(m, m)
 
-    elif choice == 2:
-        if A.shape == B.shape:
-            result = A - B
-        else:
-            print("Matrix dimensions must match for subtraction.")
-            continue
     elif choice == 3:
         result = A * scalar
     elif choice == 4:
