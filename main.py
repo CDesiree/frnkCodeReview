@@ -13,6 +13,14 @@ def input_matrix(m, n):
     return np.array(matrix)
 
 
+def define_matrix():
+    m = int(input("Enter the number of rows: "))
+    n = int(input("Enter the number of columns: "))
+    A = input_matrix(m, n)
+    B = input_matrix(m, n)
+    return A, B
+
+
 def add_matrix(matrix1, matrix2):
     if matrix1.shape == matrix2.shape:
         Result = matrix1+matrix2
@@ -47,10 +55,7 @@ while True:
         continue
 
     if choice == 1:
-        m = int(input("Enter the number of rows: "))
-        n = int(input("Enter the number of columns: "))
-        A = input_matrix(m, n)
-        B = input_matrix(m, n)
+        A, B = define_matrix()
         result = add_matrix(A, B)
 
     if choice in [2, 4]:
