@@ -58,13 +58,6 @@ def transpose():
     return np.transpose(A)
 
 
-def determinant(matrix1, matrix2):
-    if matrix1.shape[1] == matrix2.shape[0]:
-        return np.linalg.det(A)
-    else:
-        print("Determinant can only be calculated for square matrices.")
-
-
 def print_matrix(matrix):
     for row in matrix:
         print(" ".join(map(str, row)))
