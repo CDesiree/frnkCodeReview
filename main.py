@@ -13,6 +13,14 @@ def input_matrix(m, n):
     return np.array(matrix)
 
 
+def add_matrix(matrix1, matrix2):
+    if matrix1.shape == matrix2.shape:
+        Result = sum(matrix1, matrix2)
+        return Result
+    else:
+        print("Matrix dimensions must match for addition.")
+
+
 def print_matrix(matrix):
     for row in matrix:
         print(" ".join(map(str, row)))
@@ -38,7 +46,14 @@ while True:
         print("Invalid choice. Please enter a valid option.")
         continue
 
-    if choice in [1, 2, 4]:
+    if choice == 1:
+        m = int(input("Enter the number of rows: "))
+        n = int(input("Enter the number of columns: "))
+        A = input_matrix(m, n)
+        B = input_matrix(m, n)
+        result = add_matrix(A, B)
+
+    if choice in [2, 4]:
         m = int(input("Enter the number of rows: "))
         n = int(input("Enter the number of columns: "))
         A = input_matrix(m, n)
@@ -52,12 +67,6 @@ while True:
         m = int(input("Enter the size of the square matrix (e.g., 2 for 2x2, 3 for 3x3, etc.): "))
         A = input_matrix(m, m)
 
-        if choice == 1:
-            if A.shape == B.shape:
-                result = A + B
-        else:
-            print("Matrix dimensions must match for addition.")
-            continue
     elif choice == 2:
         if A.shape == B.shape:
             result = A - B
@@ -92,7 +101,6 @@ while True:
             print("Matrix inverse can only be calculated for square matrices.")
             continue
 
-    print("\nResult:")
-    print_matrix(result)
+    print("\nResult:", result)
 
 print("Goodbye!")
