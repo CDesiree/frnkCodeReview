@@ -3,7 +3,7 @@ import numpy as np
 
 def input_matrix(m, n):
     matrix = []
-    print(f"Enter {m}x{n} matrix:")
+    print(f"\nEnter {m}x{n} matrix:")
     for i in range(m):
         row = []
         for j in range(n):
@@ -15,7 +15,7 @@ def input_matrix(m, n):
 
 def add_matrix(matrix1, matrix2):
     if matrix1.shape == matrix2.shape:
-        Result = sum(matrix1, matrix2)
+        Result = matrix1+matrix2
         return Result
     else:
         print("Matrix dimensions must match for addition.")
@@ -37,7 +37,7 @@ print("7. Calculate Matrix Inverse")
 print("8. Quit")
 
 while True:
-    choice = int(input("Enter your choice: "))
+    choice = int(input("\nEnter your choice: "))
 
     if choice == 8:
         break
@@ -101,6 +101,6 @@ while True:
             print("Matrix inverse can only be calculated for square matrices.")
             continue
 
-    print("\nResult:", result)
+    print("\nResult:\n", result)
 
 print("Goodbye!")
